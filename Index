@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parcelo | Online Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <a class="logo" href="#">Parcelo</a>
+    <input id="q" type="search" placeholder="Search products" aria-label="Search products">
+    <label>Category <select id="catSel"></select></label>
+    <label>Sort by <select id="sortSel">
+      <option value="featured">Featured</option><option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option><option value="name">Name A-Z</option></select></label>
+    <nav>
+      <button data-view="shop">Shop</button>
+      <button data-view="orders" id="navOrders">My orders</button>
+      <button data-view="admin" id="navAdmin">Admin</button>
+    </nav>
+    <div class="acct"><span id="who">Guest</span><button id="authBtn">Sign in</button></div>
+    <p class="note">Demo store. Prices in Indian rupees (₹). Payments are simulated.</p>
+  </aside>
+  <main id="main"></main>
+  <aside id="cart" class="cartpane"></aside>
+</div>
+
+<dialog id="authDlg">
+  <form id="authForm" class="stack">
+    <h2 id="authTitle">Sign in</h2>
+    <label id="nameRow">Username <input id="uName" minlength="3"></label>
+    <label>Email <input id="uMail" type="email" required></label>
+    <label>Password <input id="uPass" type="password" minlength="6" required></label>
+    <button class="primary" type="submit">Continue</button>
+    <button class="link" type="button" id="swap"></button>
+    <button class="link" type="button" data-close>Cancel</button>
+  </form>
+</dialog>
+
+<dialog id="payDlg">
+  <form id="payForm" class="stack">
+    <h2>Checkout</h2>
+    <label>Saved addresses <select id="addrSel"></select></label>
+    <label>Recipient <input id="aName" required></label>
+    <label>Street <input id="aStreet" required></label>
+    <label>City <input id="aCity" required></label>
+    <label>Postal code <input id="aPost" required></label>
+    <label>Simulated payment <select id="payRes">
+      <option value="success">Payment succeeds</option><option value="failure">Payment fails</option></select></label>
+    <p id="payTotal" class="total"></p>
+    <button class="primary" type="submit">Pay and place order</button>
+    <button class="link" type="button" data-close>Cancel</button>
+  </form>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
